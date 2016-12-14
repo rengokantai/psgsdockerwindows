@@ -1,4 +1,25 @@
 # psgsdockerwindows
+##7. Running Databases in Containers
+###4 Running MySQL in a Container
+-e = --env
+```
+docker run -name name -e MYSQL_ROOT_PASSWORD=pass -d mysql
+```
+exec the db container (start client)
+```
+docker exec -it 123 mysql --user=root --password=pass
+```
+
+
+
+
+
+
+
+
+
+
+
 ##8. Composing Applications with docker-compose
 ###2 Why docker-compose Exists
 command
