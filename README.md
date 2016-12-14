@@ -106,3 +106,31 @@ ping alpine
 exit
 ```
 ###9 Restarting Containers with docker-compose start
+check status of all containers of docker compose file containers
+```
+docker-compose ps
+```
+then start specific service
+```
+docker-compose start teamcity-agent
+```
+
+```
+docker-compose help logs
+```
+###10 Using psql in the postgres Container to Look at Your Database
+```
+docker-compose exec postgres psql -U postgres
+\l
+\c teamcity
+```
+
+
+###11 Tearing Down Infrastructure Created with docker-compose
+```
+docker-compose rm -v
+```
+but the network still exists.to tear that
+```
+docker-compose down
+```
