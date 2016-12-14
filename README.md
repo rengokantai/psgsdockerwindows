@@ -60,4 +60,49 @@ services:
       - POSTGRES_DB=teamcity
 ```
 
+
+###4 Spinning Up Complex Apps with a Single Command: docker-compose up
 ```
+
+```
+
+###6 docker-compose Creates Isolated Container Networks
+list commands
+```
+docker network ls
+docker volume ls
+```
+inspect a network
+```
+docker network inspect teamcity_default
+```
+
+###7 Service Discovery via an Embedded DNS Server
+```
+docker exec -it teamcity_postgres_1 bash
+```
+is same as
+```
+docker-compose exec postgres bash
+root@12345: /#   ping teamcity
+exit
+```
+test another 
+```
+docker-compose exec teamcity bash
+root@12345: /#   ping postgres
+exit
+```
+
+###8 Connecting Another Container to Your User Defined Network
+```
+docker run --name alpine --rm --net teamcity_default alpine sh
+ping teamcity
+ip a s
+```
+```
+docker-compose exec teamcity bash
+ping alpine
+exit
+```
+###9 Restarting Containers with docker-compose start
